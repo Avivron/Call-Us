@@ -1,14 +1,15 @@
-# KvisCo
+ <p align="center">
+   <img src='https://callus-50777.web.app/assets/images/logo5.png' type='image'>
+ </p>
+ 
+ # CallUs
  Our Cooperative Laundry Application.
  A full deployed site with user mangemant (for clients and washers), location base filtered web app.
+ 
  ## Frontend Architecture
  All of the project frontend files are in public folder. We decided to arrange the html files in folders, but since a few html files using the same css and js files, all of the style and functions can be found in the css and scripts folders.
  puclic:
    - css:
-
- <p align="center">
-   <img src='https://www.linkpicture.com/q/kvisCo_logo-2-1.png' type='image'>
- </p>
 
  # 🧺 The Social Laundry Service Platform
  > Our Cooperative Laundry Application.<br/>
@@ -83,18 +84,12 @@
  </p>
 
  ## 🔗 Usage
- You can find the site (running in open version) [Here](https://themoneylaundry-745ca.web.app).</br>
+ You can find the site (running in open version) [Here](https://callus-50777.web.app).</br>
  For updates: clone the folder, connect it to Firebase cli with 'firebase init' (and connect it to firebase project) and than run 'firebase deploy' to deploy the site. make sure you have the setting required to run the project (DB handling, indexing and more).
 
- ## Our Team:
- - [Michal Cohen](https://github.com/michalcohen97)   - design, frontend, product.
- - [Netzer Epstein](https://github.com/netzer-git) - backend, product.
- - [Bar Hazut](https://github.com/barhazut)      - design, frontend, product.
- - [Amitay Rahman](https://github.com/amitayr7)  - design, frontend, product.
- - [Nadav Yochman](https://github.com/NaYochman)  - frontend, product.
  ## 🦸🏻‍♀️🦸🏻‍♂️ Our Team:
- - [Nadav Yochman](https://github.com/NaYochman)  - Frontend & Product
- - [Bar Hazut](https://github.com/barhazut)      - Frontend & UI Design
- - [Amitay Rahman](https://github.com/amitayr7)  - Frontend & Product
- - [Netzer Epstein](https://github.com/netzer-git) - Backend & Product
- - [Michal Cohen](https://github.com/michalcohen97)   - Frontend & UI Design
+ - [Tomer Gilmore] - Backend & Product
+ - [Amit Makovky] - Frontend & UI Design
+ - [Ori Meirav] - Frontend & Product
+ - [Yoav Perez] - Frontend & Product
+ - [Aviv Ron] - Backend & Product
