@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>גמד ענק</title>
+    <!--
+    SOFTY PINKO
+    https://templatemo.com/tm-535-softy-pinko
+    -->
+
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link href="assets/css/style-map.css" rel="stylesheet" />
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    
+        <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">-->
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/grid.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/queries.css" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/e774a9b1ef.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="#" class="logo">
+                <img
+                  src="assets/images/logo5.png"
+                  alt="logo"
+                  width="70"
+                  height="70"
+                />
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li id="btnLogout"><a href="javascript:void(0);">התנתק</a></li>
+                <li><a href="./bk_profile.html">הפרופיל שלי</a></li>
+                <li><a href="./bk_myrequests_gamad.html">הקטנות שלי</a></li>
+                <li><a href="./bk_gamad.html">בית הכרם</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** My Requests Header Start ***** -->
+    <div id="overlays"></div>
+    <div class="my-requests-header">
+      <!-- ***** My Requests Header Start ***** -->
+      <div class="header-text">
+        <div class="container">
+          <div class="row">
+            <div class="" style="text-align: center">
+              <h1 style="font-size: 50px">מצא קטנה</h1>
+              <h5 style="text-align: center; font-style: italic; color: white">
+                .כאן תוכל למצוא קטנות של ענקים באזורך
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***** My Requests Header End ***** -->
+    </div>
+    <!-- *****  My Requests Header End  ***** -->
+
+    <!-- *****  My Requests Header End  ***** -->
+
+    <section class="section-plans js--section-plans" id="plans">
+      <div class="row">
+        <div class="col span-2-of-6 scroll-list">
+          <div id="requestsList"></div>
+        </div>
+
+        <div class="col span-4-of-6">
+          <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script type="module">
+      import { initFirebase, db} from "./assets/firebase/fireBasic.js";
+      import {
+        popup,
+        popup3,
+        removePopup,
+        forwardGeocodePromise,
+        initMap,
+        volunteer,
+        update
+      } from "./assets/js/map.js";
+      //window.popup = popup;
+      window.removePopup = removePopup;
+      window.popup = popup;
+      window.update=update;
+      initFirebase();
+
+      // console.log(forwardGeocodePromise("רחביה, ירושלים"));
+
+      window.volunteer = volunteer;
+
+      // window.user = firebase.auth().currentUser;
+      window.db = db;
+      initMap(window.db, 1, 31.7775, 35.1894);
+
+      const btnLogout = document.getElementById('btnLogout');
+      btnLogout.addEventListener('click', e=>{
+      firebase.auth().signOut();
+    });
+
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+
+              var vol_id;
+                  
+              if(firebaseUser){
+                window.user = firebase.auth().currentUser.uid;
+                vol_id = firebase.auth().currentUser.uid;
+              }
+              else{
+                console.log('not logged in');
+                location.replace("./index.html")
+              }
+
+              window.db.collection("users")
+                .doc(vol_id)
+                .get()
+                .then((doc) => {
+                  if (doc.data().fill_info != ''){
+                    console.log(doc.data().password)
+                    window.popup = popup;
+                  }
+                  else{
+                    window.popup = popup3;
+                  }
+                });
+        });
+    </script>
+
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvGXiGpfYhNinQDu-E-G4LGSyF_Rrv1H8"
+      async
+    ></script>
+    <!-- https://maps.googleapis.com/maps/api/js?key=AIzaSyDvGXiGpfYhNinQDu-E-G4LGSyF_Rrv1H8&map_ids=a856c89da17dedb6&callback=initMap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

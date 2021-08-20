@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript">
+        function onlyOne(checkbox) {
+          var checkboxes = document.getElementsByName('check')
+          checkboxes.forEach((item) => {
+              if (item !== checkbox) item.checked = false
+          })
+        }
+    </script>
+
+
+    <title> גמד ענק</title>
+<!--
+SOFTY PINKO
+https://templatemo.com/tm-535-softy-pinko
+-->
+
+    <!-- Additional CSS Files -->
+    <link href="assets/css/style-map.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">
+                            <img src="assets/images/logo5.png" alt="logo" width="70" height="70"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                    <ul class="nav">         
+                        <li id="btnLogout"><a href="javascript:void(0);">התנתק</a></li>
+                        <li><a href="./rehavia_profile.html">הפרופיל שלי</a></li>
+                        <li><a href="./rehavia_myrequests_anak.html">הקטנות שלי</a></li>
+                        <li><a href="./rehavia_anak.html">רחביה</a></li>
+                    </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Ask For Help Header Start ***** -->
+    <div class="ask-for-help-header">
+
+        <!-- ***** Ask For Help Header Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                        <h1 style=font-size:50px;>צריך טובה בקטנה</h1>
+                        <p>
+                            .<strong>קטנה:</strong> בקשה קטנה המאפשרת לעזור לאדם הנמצא באזור במהירות
+                        </p>
+                        <div class = "request-button" style="font-size: 20px;">
+                            <li><a href="#step1">בקש משהו בקטנה</a></li> 
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <!-- ***** Ask For Help Header End ***** -->
+    </div>
+    <!-- ***** Ask For Help Header End  ***** -->
+
+    <!-- ***** Ask For Help Step 1 Start  ***** -->
+    <div class="ask-for-help-steps" id="step1">
+
+        <!-- ***** Ask For Help Step 1 Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row" style="justify-content: center;">
+                    <div style="justify-content: center;">
+                        <br><p style="font-size: 14px;">שלב 1/3</p></br>
+                        <br><h2 style="text-align: center;">?איך אפשר לעזור</h2></br>
+                    </div>
+                </div>                         
+                <form class="options">
+                    <input class="inp-cbx" id="grocery" type="checkbox" name="check" onclick="onlyOne(this)" value="בקטנה במכולת">
+                    <label class="cbx" for="grocery"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span> בקטנה במכולת </span></label>
+                    <input class="inp-cbx" id="pharmacy" type="checkbox" name="check" onclick="onlyOne(this)" value="בקטנה מבית המרקחת">
+                    <label class="cbx" for="pharmacy"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>בקטנה מבית המרקחת</span></label>
+                    <input class="inp-cbx" id="computer" type="checkbox" style="display: none" name="check" onclick="onlyOne(this)" value="בקטנה במחשב">
+                    <label class="cbx" for="computer"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>בקטנה במחשב</span></label>
+                    <input class="inp-cbx" id="phone" type="checkbox" name="check" onclick="onlyOne(this)" value="בקטנה בסלולרי">
+                    <label class="cbx" for="phone"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>בקטנה בסלולרי</span></label>
+                    <!--SVG Sprites-->
+                    <svg class="inline-svg">
+                    <symbol id="check" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </symbol>
+                    </svg></br>
+                    <input class="inp-cbx" id="time-together" type="checkbox" name="check" onclick="onlyOne(this)" value="אשמח להעביר איתך קצת זמן">
+                    <label class="cbx" for="time-together"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>אשמח להעביר איתך קצת זמן</span></label>
+                    <input class="inp-cbx" id="home" type="checkbox" name="check" onclick="onlyOne(this)" value="בקטנה בבית">
+                    <label class="cbx" for="home"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>בקטנה בבית</span></label>
+                    <input class="inp-cbx" id="language" type="checkbox" name="check" onclick="onlyOne(this)" value="אשמח לעזרה עם השפה">
+                    <label class="cbx" for="language"><span>
+                        <svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                        </svg></span><span>אשמח לעזרה עם השפה</span></label></br>
+                    <!--SVG Sprites
+                    <svg class="inline-svg">
+                    <symbol id="check" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </symbol>
+                    </svg></br>-->
+                    <div class="other" style="text-align: center;">
+                        <input type="text" id="request_txt" name="fname">
+                        <label for="fname">:משהו אחר בקטנה</label>
+                    </div></br>
+                    <div class = "request-button" style="font-size: 20px; text-align: center;">
+                        <li><a href="#step2">הבא</a></li> 
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Ask For Help Step 1 Text End ***** -->
+    </div>
+    <!-- ***** Ask For Help Step 1 End ***** -->
+
+    <!-- ***** Ask For Help Step 2 Start  ***** -->
+    <div class="ask-for-help-steps" id="step2" style="background-color: #fafafa;">
+
+        <!-- ***** Ask For Help Step 2 Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div style="justify-content: center;">
+                    <br><p style="font-size: 14px;">2/3</p></br>
+                    <br><h2 style="text-align: center;">?איפה</h2></br>
+                </div>                         
+                <form class="form-place">
+                    <label for="01">במקום אחר - תיאום טלפוני</label>
+                    <input class="req_loc" id="01" type="radio" name="r" value="1">
+                    <label for="02">אצלי בבית</label>
+                    <input class="req_loc" id="02" type="radio" name="r" value="2">
+                </form></br>
+                    <div class = "request-button" style="font-size: 20px; text-align: center;">
+                        <li><a href="#step3">הבא</a></li> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Ask For Help Step 2 Text End ***** -->
+    </div>
+    <!-- ***** Ask For Help Step 2 End ***** -->
+
+    <!-- ***** Ask For Help Step 3 Start  ***** -->
+    <div class="ask-for-help-steps" id="step3" style="height: 75vh;">
+
+        <!-- ***** Ask For Help Step 3 Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div style="justify-content: center;">
+                    <br><p style="font-size: 14px;">שלב 3/3</p></br>
+                    <br><h2 style="text-align: center;">?מתי</h2></br>
+                </div>
+                <form class="form-place" style="justify-content: center;">
+                    <label for="01">היום</label>
+                    <input class="req_time" id="01" type="radio" name="r" value="1">
+                    <label for="02">מחר</label>
+                    <input class="req_time" id="02" type="radio" name="r" value="2">
+                </form>                    
+                <form class="form-time" style="align-items: center; text-align: center;">
+                    <input type="date" id="date" name="date" style="font-family: 'Heebo'; font-size: 20px;">
+                    <label for="date" style="font-size: 20px;">:תאריך אחר</label></br>
+                    <br><input type="time" id="appt" name="appt" style="font-family: 'Heebo'; font-size: 20px;">
+                    <label for="appt" style="font-size: 20px" >:שעה</label>
+                </form></br>
+                <div style="justify-content: center; text-align: center;"> 
+                    <button type="submit" id="btnSub-Req" class="submit" style="margin-left: auto; margin-right: auto;">סיימתי</button>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Ask For Help Step 3 Text End ***** -->
+    </div>
+
+    <div id="overlays"></div>
+    <!-- ***** Ask For Help Step 3 End ***** -->
+    <script type="module">
+        import { initFirebase, db } from "./assets/firebase/fireBasic.js";
+    </script>
+    
+    <!--jQuery -->
+    <script src="assets/js/askforhelp.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
+
+
+  </body>
+</html>

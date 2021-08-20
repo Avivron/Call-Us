@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>גמד ענק</title>
+<!--
+SOFTY PINKO
+https://templatemo.com/tm-535-softy-pinko
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">-->
+
+    <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">
+                            <img src="assets/images/logo5.png" alt="logo" width="70" height="70"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li id="btnLogout"><a href="javascript:void(0);">התנתק</a></li>
+                            <li><a href="./rehavia_profile.html">הפרופיל שלי</a></li>
+                            <li><a href="#aboutus" class="active">הקטנות שלי</a></li>
+                            <li><a href="./rehavia_gamad.html">רחביה</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** My Requests Header Start ***** -->
+    <div class="my-requests-header">
+
+        <!-- ***** My Requests Header Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                        <h1 style=font-size:50px;>הקטנות שלי</h1>
+                        <br><h5 style="text-align: center; font-style: italic; color: white;">.כאן יופיעו כל הקטנות שלך</h2></br>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <!-- ***** My Requests Header End ***** -->
+    </div>
+    <!-- *****  My Requests Header End  ***** -->
+
+    <!-- *****  My Requests Step 1 Start  ***** -->
+    <div class="my-requests" id="my-requests">
+
+        <!-- ***** Ask For Help Step 1 Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row" style="justify-content: center;">
+                    <div style="justify-content: center;">
+                        <br>
+                    </div>
+                </div>
+                <div class="container" id='myRequests'>
+                </div>
+            </div>
+        </div>
+        <!-- ***** My Requests Text End ***** -->
+    </div>
+    <!-- ***** My Requests Step 1 End ***** -->
+
+    <script type="module">
+        import { initFirebase, db } from "./assets/firebase/fireBasic.js";
+        import { getRequests } from "./assets/js/myrequests_gamad.js";
+
+        const btnLogout = document.getElementById('btnLogout');
+        initFirebase();
+        window.db = db;
+  
+        btnLogout.addEventListener('click', e=>{
+          console.log(firebase.auth().currentUser);
+            firebase.auth().signOut();
+        });
+  
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+        console.log(firebaseUser);
+        if(!firebaseUser){
+          location.replace("./index.html")
+        }
+        else{
+            window.userID = firebase.auth().currentUser.uid;
+            getRequests(db, window.userID);
+        }
+    });
+      </script>
+
+    <!--jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>

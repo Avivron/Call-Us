@@ -1,0 +1,175 @@
+/* 
+---------------------------------------------
+neighborhood
+--------------------------------------------- 
+*/
+
+.neigh {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgb(0, 0, 0, 0.45)),
+    url(https://images.unsplash.com/photo-1587556930799-8dca6fad6d41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.neigh-box {
+  background-color: #ffffff;
+  width: 400px;
+  height: 300px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.neigh .neigh-content .info {
+  text-align: center;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.neigh .neigh-content .info small {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.neigh .neigh-content .info strong {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.neigh .neigh-content .info h1 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.25px;
+  margin-bottom: 30px;
+}
+
+.neigh .neigh-content .info p {
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: #fff;
+  letter-spacing: 0.25px;
+  line-height: 26px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.neigh .neigh-content .info p span {
+  text-decoration: underline;
+}
+
+.neigh .neigh-content .neigh-box {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  position: relative;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  text-align: center;
+}
+
+.neigh .neigh-content .neigh-box:hover {
+  margin-top: -10px;
+}
+
+.neigh .neigh-content .neigh-box:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #fff;
+  width: 100%;
+  opacity: 0.15;
+  height: 100%;
+  bottom: -10px;
+  left: 0px;
+  right: -20px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.neigh .neigh-content .neigh-box i {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.neigh .neigh-content .neigh-box span {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  color: #777;
+  letter-spacing: 0.75px;
+}
+
+.neigh .neigh-content .neigh-box strong {
+  display: block;
+  font-weight: 400;
+  font-size: 17px;
+  color: #1e1e1e;
+  letter-spacing: 0.25px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.un {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Heebo";
+}
+
+.pass {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Heebo";
+  text-align-last: center;
+}
+
+.un:focus,
+.pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  height: 100px;
+  margin-bottom: -22px;
+}

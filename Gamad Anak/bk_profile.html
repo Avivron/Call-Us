@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script></script>
+
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>גמד ענק</title>
+    <!--
+SOFTY PINKO
+https://templatemo.com/tm-535-softy-pinko
+-->
+
+    <!-- Additional CSS Files -->
+    <link href="assets/css/style-map.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">-->
+
+    <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css" />
+    <link rel="stylesheet" href="assets/css/profile.css" />
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="#" class="logo">
+                <img
+                  src="assets/images/logo5.png"
+                  alt="logo"
+                  width="70"
+                  height="70"
+                />
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li id="btnLogout"><a href="javascript:void(0);">התנתק</a></li>
+                <li><a href="#login" class="active">הפרופיל שלי</a></li>
+                <li id="btnRequests"><a href="#aboutus">הקטנות שלי</a></li>
+                <li id="btnHood"><a href="javascript:void(0);">בית הכרם</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Ask For Help Header Start ***** -->
+    <div class="ask-for-help-header" id="welcome">
+      <!-- ***** Ask For Help Header Start ***** -->
+      <div class="header-text">
+        <div class="container">
+          <div class="row">
+            <div
+              class="
+                offset-xl-3
+                col-xl-6
+                offset-lg-2
+                col-lg-8 col-md-12 col-sm-12
+              "
+            >
+              <h1 style="font-size: 50px">הפרופיל שלי</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***** Ask For Help Header End ***** -->
+    </div>
+    <!-- ***** Ask For Help Header End  ***** -->
+
+    <!-- ***** Ask For Help Step 1 Start  ***** -->
+
+    <br><h2 style="text-align: center;">הפרטים שלי</h2></br>
+
+    <div class="container">
+      <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="account-settings">
+                <div class="user-profile">
+                  <div class="user-avatar">
+                    <img
+                      src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+                      alt="Maxwell Admin"
+                    />
+                  </div>
+                  <h5 class="user-name" id="name" style="font-size: 23px"></h5>
+                  <h6 class="user-email" id="email" style="font-size: 18px;"></h6>
+                </div>
+                <div class="about">
+                  <h5 style="font-size: 20px;">קצת עליי</h5>
+                  <div class="edit" id="txtDescription" contenteditable="true">
+                    <p style="font-size: 18px;">
+                        <label></label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="row gutters" style="text-align: right;">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mb-2" style="font-size: 20px; color: #e67e22;">פרטים אישיים</h6>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group" style="align-items: right;">
+                    <label for="phone"   style="font-size: 21px; font-weight: bold;">טלפון</label>
+                    <div class="editable"id="txtPhone" contenteditable="true">
+                       
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="fullName"  style="font-size: 21px; font-weight: bold;">שם מלא</label>
+                    <div class="editable" id="txtName" contenteditable="true">
+                   
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="eMail"  style="font-size: 21px; font-weight: bold;">כתובת</label>
+                        <div class="editable" id="txtAddress" contenteditable="true">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="eMail"  style="font-size: 21px; font-weight: bold;">כתובת מייל</label>
+                    <div class="editable" id="txtEmail" contenteditable="true">
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters" style="text-align: right;">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <div id="list1" class="dropdown-check-list" tabindex="100">
+                            <label for="eMail" style="font-size: 21px; font-weight: bold;" >תחביבים</label>
+                                <ul class="items" id="checkedHobbies" style="direction:rtl; font-size: 20px;">
+                                    <li><input value="fas fa-camera" id="צילום" type="checkbox"/>          צילום
+                                        <i class="fas fa-camera" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-basketball-ball" id="ספורט" type="checkbox"/>   ספורט
+                                        <i class="fas fa-basketball-ball" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-dog" id="חיות מחמד" type="checkbox"/>   חיות מחמד
+                                        <i class="fas fa-dog" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-cookie-bite" id="אפייה ובישול" type="checkbox"/>   אפייה ובישול 
+                                        <i class="fas fa-cookie-bite" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-guitar" id="כלי נגינה" type="checkbox"/>   כלי נגינה 
+                                        <i class="fas fa-guitar" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-motorcycle" id="אופנועים/רכבים" type="checkbox"/>   אופנועים / רכבים 
+                                        <i class="fas fa-motorcycle" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-paint-brush" id="אומנות וציור" type="checkbox"/>   אומנות וציור
+                                        <i class="fas fa-paint-brush" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fab fa-avianex" id="טיולים" type="checkbox"/>   טיולים
+                                        <i class="fab fa-avianex" id="" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-hammer" id="נגרות" type="checkbox"/>   נגרות
+                                        <i class="fas fa-hammer" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                    <li><input value="fas fa-horse-head" id="שחמט" type="checkbox"/>   שחמט
+                                        <i class="fas fa-horse-head" style="text-align: center; margin-right: 15px;"></i>
+                                    </li>
+                                </ul>   
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align-last: center;">
+                  <div class="text-right">
+                    <button
+                      type="button"
+                      id="submit"
+                      name="submit"
+                      class="cancel-profile"
+                    >
+                      בטל
+                    </button>
+                    <button
+                      type="button"
+                      id="btnSignUp"
+                      name="submit"
+                      class="submit-profile"
+                    >
+                      עדכן
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlays"></div>
+
+        <script type="module">
+      import {initFirebase, db } from "./assets/firebase/fireBasic.js";
+      import {info} from "./assets/js/profile.js";
+
+      const btnLogout = document.getElementById('btnLogout');
+      initFirebase();
+      window.db = db;
+      var vol_id;
+
+
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        
+        if(!firebaseUser){
+        location.replace("./index.html")
+      }
+      else{
+        vol_id =  firebase.auth().currentUser.uid;
+        info(db, firebase.auth().currentUser.uid)
+      }
+      console.log(firebase.auth().currentUser.uid);
+
+      
+      });
+      
+      btnLogout.addEventListener('click', e=>{
+        console.log(firebase.auth().currentUser);
+          firebase.auth().signOut();
+      });
+
+
+
+      const btnRequests = document.getElementById('btnRequests');
+      btnRequests.addEventListener('click', e=>{
+        db.collection("users")
+                .doc(vol_id)
+                .get()
+                .then((doc) => {
+                  if(doc.data().user_type == 1){
+                    location.replace("./bk_myrequests_gamad.html");
+                  }
+                  else{
+                    location.replace("./bk_myrequests_anak.html");
+                  };
+                }
+              )});
+
+
+      const btnHood = document.getElementById('btnHood');
+      btnHood.addEventListener('click', e=>{
+        db.collection("users")
+                .doc(vol_id)
+                .get()
+                .then((doc) => {
+                  if(doc.data().user_type == "1"){
+                    location.replace("./bk_gamad.html");
+                  }
+                  else{
+                    location.replace("./bk_anak.html");
+                  };
+                }
+              )});
+    </script>
+
+    <script type="module">
+  import {
+    // popup,
+    // removePopup,
+    forwardGeocodePromise,
+    initMap,
+  } from "./assets/js/map.js";
+
+  import {popup, removePopup, update, popup_done, update_done, removePopup_done} from "./assets/js/profile.js"
+  window.popup = popup;
+  window.removePopup = removePopup;
+  window.update = update;
+  
+  window.popup_done = popup_done;
+  window.removePopup_done = removePopup_done;
+  window.update_done = update_done;
+
+    const txtName = document.getElementById('txtName');
+    const txtPhone = document.getElementById('txtPhone');
+    const txtEmail = document.getElementById('txtEmail');
+    const txtAddress = document.getElementById('txtAddress');
+    const checkedHobbies = document.getElementById('checkedHobbies');
+    const txtDescription = document.getElementById('txtDescription');
+    const auth = firebase.auth();
+
+    const btnSignUp = document.getElementById('btnSignUp');
+
+    //     btnLogout.addEventListener('click', e=>{
+    //   firebase.auth().signOut();
+    // });
+      // Add SignUp event
+    // TODO: check for real Emails
+    btnSignUp.addEventListener('click', async(e)=>{
+      //Get email and pass
+      const email = txtEmail.innerText;
+      const phone = txtPhone.innerText;
+      const name = txtName.innerText;
+      const address = txtAddress.innerText;
+      const descp = txtDescription.innerText;
+      const auth = firebase.auth();
+      var user = firebase.auth().currentUser;
+
+      var hobbies_array = []
+      var hobbies_names = []
+      var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+      for (var i = 0; i < checkboxes.length; i++) {
+      hobbies_array.push(checkboxes[i].value)
+      hobbies_names.push(checkboxes[i].id)
+    }
+    
+      console.log(email, phone, name, address, descp);
+      var coordiantes = await forwardGeocodePromise(address + ", ירושלים");
+      console.log(coordiantes);
+      console.log(user);
+      console.log(email);
+      console.log(phone);
+      console.log(address);
+      console.log(name);
+      console.log(descp);
+      console.log(hobbies_array);
+      console.log(hobbies_names);
+      console.log(user.user_type);
+
+      var user_type;
+      db.collection("users").doc(user.uid).get().then((doc) =>{
+        console.log(doc.data().user_type);
+        user_type = doc.data().user_type;
+      })
+
+      if((email == "") || (phone == "") || (address == "") || (name == "") || (descp == "") || hobbies_array.length == 0){
+        console.log("Missing Data");
+        window.popup();
+      }
+      else{
+        console.log("Working Data");
+        console.log(user.email);
+        console.log(2, user.user_type)
+        db.collection("users").doc(user.uid).update({
+        Email: email,
+        first_name: name,
+        phone_number: phone,
+        address: address,
+        hobbies:  hobbies_array,
+        hobbies_names:  hobbies_names,
+        description: descp,
+        coordinates: coordiantes.results[0].geometry,
+        fill_info: "True"
+      }).then(()=>{
+        console.log(1, user_type);
+        window.popup_done(1, user_type);
+      })}
+    });
+      
+      // Sign in
+
+
+    </script>
+
+    <!--jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+    <script src="https://kit.fontawesome.com/e774a9b1ef.js" crossorigin="anonymous"></script>
+  </body>
+</html>

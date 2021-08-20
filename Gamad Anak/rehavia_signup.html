@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script></script>
+  
+
+
+    <title>גמד ענק</title>
+<!--
+SOFTY PINKO
+https://templatemo.com/tm-535-softy-pinko
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/signup.css">
+
+
+    </head>
+
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <div class="wrapper">
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                  <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="#" class="logo">
+                        <img src="assets/images/logo5.png" alt="logo" width="70" height="70"/>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="#login">התחבר</a></li>
+                            <li><a href="#aboutus">קצת עלינו</a></li>
+                            <li><a href="#welcome" class="active">רחביה </a></li>
+                        </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                  </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+
+      <!-- ***** Stage 1 Start ***** -->
+      <div class="mini-container">
+      <div class="mini  step-one" id = "sign_1">
+        <div class="sign-up" style="justify-content: center; text-align: center;">
+          <br><p style="font-size: 14px; font-style: italic;">שלב 1/3</p></br>
+          <br><h2 style="text-align: center;">אנא הזן פרטים אישיים</h2></br>
+          <form class="form1" style="justify-content: center;">
+              <input class="un " id="txtName" type="text"placeholder="שם פרטי ומשפחה">
+              <input class="pass" id="txtEmail" type="text" style="margin-top: -10px;" placeholder="כתובת מייל">
+              <input class="pass " id="txtPhone" type="text" style="align-items: center; margin-top: -10px;" placeholder="מספר טלפון">
+          </form>
+          <button type="submit" id="form-submit" class="submit button1" style="align-items: center">המשך</button>
+        </div>
+      </div>
+      <!-- ***** Stage 1 End ***** -->
+
+
+      <!-- ***** Stage 2 Start ***** -->
+        <div class="mini step-other swipeRight">
+          <div class="sign-up" id = "sign_2" style="justify-content: center; text-align: center;">
+            <br><p style="font-size: 14px; font-style: italic; margin-left: 30px;">שלב 2/3
+            <button class="arrow right backbtn1"></button></p></br>
+            <br><h2 style="text-align: center;">אני</h2></br><br>
+            <form class="form-place" id="idUser">
+                <label for="01" style="font-size: 22px;">גמד: מתנדב</label>
+                <input class="usertype" id="01" type="radio" name="r" value="1">
+                <label for="02" style="font-size: 22px; padding-left:10px">ענק: אזרח ותיק</label>
+                <input class="usertype" id="02" type="radio" name="r" value="2">
+            </form></br><br><br><br>
+              <button type="submit" id="form-submit"  class="submit button2" style="align-items: center">המשך</button>
+          </div>
+        </div>
+      <!-- ***** Stage 2 End ***** -->
+
+      <!-- *****stage 3 Start ***** -->
+        <div class="mini step-other swipeRight1">
+          <div class="sign-up" id = "sign_3" style="justify-content: center; text-align: center;">
+            <br><p style="font-size: 14px; font-style: italic; margin-left: 30px;">שלב 3/3 <button class="arrow right backbtn2"></button></p></br>
+            <br><h2 style="text-align: center;">בחר סיסמא</h2></br>
+            <form class="form1" style="justify-content: center;">
+              <input class="pass" type="password" style="margin-top: -10px;" placeholder="הזן סיסמא" id="txtPassword">
+              <input class="pass " type="password" style="align-items: center; margin-top: -10px;" placeholder="אשר סיסמא">
+          </form>
+          <br><br><br>
+            <button type="submit" id="btnSignUp" class="submit button3" style="align-items: center">סיום</button>
+        </div>
+      </div>
+    <!-- ***** Stage 3 End ***** -->
+
+</div>
+
+<!-- <script type="text/javascript">
+  var checkList = document.getElementById('list1');
+  checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+    if (checkList.classList.contains('visible'))
+      checkList.classList.remove('visible');
+    else
+      checkList.classList.add('visible');
+  }
+</script>
+<script type="text/javascript">
+
+</script> -->
+
+<script type="module">
+  import { initFirebase, db } from "./assets/firebase/fireBasic.js";
+  import {
+    popup,
+    removePopup,
+    forwardGeocodePromise,
+    initMap,
+  } from "./assets/js/map.js";
+  window.popup = popup;
+  window.removePopup = removePopup;
+  initFirebase();
+  window.db = db;
+    const txtName = document.getElementById('txtName');
+    const txtPhone = document.getElementById('txtPhone');
+    const idUser = document.getElementById('idUser');
+    const txtPassword = document.getElementById('txtPassword');
+    const auth = firebase.auth();
+
+    const btnSignUp = document.getElementById('btnSignUp');
+    const btnHomePage = document.getElementById('btnHomePage');
+
+    btnSignUp.addEventListener('click', async(e)=>{
+      //Get email and pass
+      const email = txtEmail.value;
+      const phone = txtPhone.value;
+      const name = txtName.value;
+      const neighborhood = 2;
+      const pass = txtPassword.value;
+      const auth = firebase.auth();
+
+      var usertype = null; 
+      var inputElements = document.getElementsByClassName('usertype');
+      for(var i=0; inputElements[i]; ++i){
+      if(inputElements[i].checked){
+           usertype = inputElements[i].value;
+           break;
+        }
+      }
+      // Sign in
+      auth.createUserWithEmailAndPassword(email,pass).then(cred => {
+        return db.collection('users').doc(cred.user.uid).set({
+        Email: email,
+        name: name,
+        phone_number: phone,
+        user_type: usertype,
+        hood: neighborhood,
+        address: "",
+        fill_info: "",
+        password: pass,
+        hobbies:  [],
+        hobbies_names: [],
+        description: "",
+        coordinates: ""
+      })
+    }).then(() => {
+      console.log(usertype);
+      if (usertype == 1){
+        location.replace("./rehavia_gamad.html");
+      }
+      else{
+        location.replace("./rehavia_anak.html")
+      };
+    });
+    });
+
+
+</script>
+
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <!---SLIDER JS-->
+    <script src="assets/js/slider.js"></script>
+
+  </body>
+</html>

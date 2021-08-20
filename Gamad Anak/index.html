@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script></script>
+    <script type="text/javascript">let firebaseConfig = {
+    apiKey: "AIzaSyAw1y2xZAYjCzZx5Ar6O42hiGCtly5Ed2k",
+    authDomain: "callus-50777.firebaseapp.com",
+    databaseurl: "https://callus-50777.firebaseio.com",
+    projectId: "callus-50777",
+    storageBucket: "callus-50777.appspot.com",
+    messagingSenderId: "710368084796",
+    appId: "1:710368084796:web:0f8582d3bfed5b4cf81439",
+    measurementId: "G-8SS2E15GX5"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  </head>
+    
+  <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+
+
+<script type="text/javascript">
+  console.log(firebase.auth);
+  db = firebase.firestore();
+    // Add a realtime listener
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      console.log(firebaseUser);
+      if(firebaseUser){
+        var vol_id = firebase.auth().currentUser.uid;
+        db.collection("users")
+                .doc(vol_id)
+                .get()
+                .then((doc) => {
+                  if (doc.data().user_type == 1){
+                    if(doc.data().hood == 2){
+                    location.replace("./rehavia_gamad.html");
+                  }
+                  else if (doc.data().hood == 1) {
+                    location.replace("./bk_gamad.html");
+                  };
+                  }
+                  else{
+                    if(doc.data().hood == 2){
+                    location.replace("./rehavia_anak.html");
+                  }
+                  else if (doc.data().hood == 1) {
+                    location.replace("./bk_anak.html");
+                  }
+                  else {
+                    location.replace("./neighborhood.html");
+                  }
+                  }
+                  }
+                  
+          )}
+          else{
+            location.replace("./neighborhood.html");
+          }
+      });
+  </script>
+
+    
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+        

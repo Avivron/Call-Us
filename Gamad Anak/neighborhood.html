@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>גמד ענק</title>
+    <!--
+SOFTY PINKO
+https://templatemo.com/tm-535-softy-pinko
+-->
+
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css" />
+    <link rel="stylesheet" href="assets/css/neighborhood.css" />
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Welcome Area Start ***** -->
+      <!-- ***** Header Text Start ***** -->
+        <div class="neigh">
+          <div class="neigh-box">
+              <div class="center" style="justify-content: center;">
+                <br><h2 style="text-align: center;">אני גר בשכונת</h2></br>
+                <form class="form1" style="justify-content: center;">
+                <select name="" id="neighborhoods"  style="text-align: center"  class="pass" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                    <option value="0" disabled selected >בחר שכונה</option>
+                    <option value="1">בית הכרם</option>
+                    <option value="2">רחביה</option>
+                </select>
+                </form><br><br>
+                <button type="submit" id="form-submit" class="submit button3" style="align-items: center">המשך</button>
+              </div>
+          </div>
+      </div>
+    <!-- ***** Welcome Area End ***** -->
+    <script type="text/javascript">
+        const btnNeighb = document.getElementById("form-submit");
+
+        btnNeighb.addEventListener('click', e => {
+          
+          var e = document.getElementById("neighborhoods");
+          var neighborhood = e.value;
+          console.log(neighborhood);
+          if(neighborhood == 2){
+            location.replace('./rehavia.html');
+          }
+          else{
+            location.replace('./beithakerem.html');
+          };
+        });
+    </script>
+
+    <!--jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>
