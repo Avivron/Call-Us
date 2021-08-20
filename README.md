@@ -3,8 +3,8 @@
  </p>
  
  # CallUs
- - Our Cooperative Laundry Application.
- - A full deployed site with user mangemant (for clients and washers), location base filtered web app.
+ > Our Cooperative Laundry Application.
+ > A full deployed site with user mangemant (for clients and washers), location base filtered web app.
  
  ## Frontend Architecture
  All of the project frontend files are in public folder. We decided to arrange the html files in folders, but since a few html files using the same css and js files, all of the style and functions can be found in the css and scripts folders.
