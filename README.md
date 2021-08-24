@@ -2,7 +2,7 @@
    <img src='https://callus-50777.web.app/assets/images/logo5.png' type='image'>
  </p>
  
- # CallUs
+ # Gamad Anak
  Our quick, location-based platform to offer and seek help - specifically for the elderly <br>
  - Encouraging more young people to help others
  - Elderly intuitive platform
